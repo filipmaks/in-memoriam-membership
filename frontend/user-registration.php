@@ -47,7 +47,7 @@ $membership_name= get_option('membership_name');
 
 
 
-<div class="container user-membership">
+<div class="user-membership">
     
   <?php
    if(!empty($_GET['action']) && $_GET['action'] == "payment"):

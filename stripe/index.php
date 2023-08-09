@@ -19,13 +19,13 @@
         height: 100%;
     }
 
-    body {
+    /* body {
         background: #E6EBF1;
         display: flex;
         align-items: center;
         justify-content: center;
         min-height: 100%;
-    }
+    } */
 
     form {
         width: 480px;
@@ -209,7 +209,7 @@
                    
                     </div>			
                     
-                    <button type="submit">Pay <?=!empty($membership_currency)?$membership_currency:'$'?><?= $cost ?></button>
+                    <button type="submit">Pay <?= $cost ?> <?=!empty($membership_currency)?$membership_currency:'$'?></button>
                     
                     <div class="outcome">
                     
