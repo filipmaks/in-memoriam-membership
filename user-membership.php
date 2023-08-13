@@ -17,7 +17,7 @@ $error='';
 class userMembership {
 
       private  $error='';
-    
+     
     public function __construct() {
         
         global $error;
