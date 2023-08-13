@@ -102,6 +102,10 @@ $user_registration = false;
         
         <p>If you dont have account, <a href="<?= site_url()?>/user-membership">please register</a></p>
  
+       <a class="reset-password-url" href="<?php echo esc_url( wp_lostpassword_url( get_permalink() ) ); ?>" alt="<?php esc_attr_e( 'Lost Password', 'textdomain' ); ?>">
+	<?php esc_html_e( 'Lost Password', 'textdomain' ); ?>
+</a>
+
     </div>
         
 </form>
