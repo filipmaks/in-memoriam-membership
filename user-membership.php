@@ -17,11 +17,11 @@ $error='';
 class userMembership {
 
       private  $error='';
-     
+       
     public function __construct() {
         
         global $error;
-        
+         
         
         add_filter( 'manage_users_custom_column', array($this, 'manage_custom_column_data'), 10, 3 );
 
