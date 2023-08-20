@@ -245,8 +245,7 @@ endif;
 </style>
 <div class="container user-membership-postcreate">
     <?php
-    if ($all_post->post_count < $number_of_post || !empty($_GET['id'])):
-
+   
         $current_user = $post->post_author;
 
         $post_id = $_POST['post_id'];
@@ -904,11 +903,7 @@ endif;
         </form>
 
     <?php
-else:
 
-    echo "<p class='post-completed'> You cannot create anymore posts</p>";
-
-endif;
 ?>
 </div>
 

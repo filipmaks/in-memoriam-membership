@@ -100,11 +100,14 @@ $user_registration = false;
       
         <button class="btn btn-primary" type="submit">Login</button>
         
-        <p>If you dont have account, <a href="<?= site_url()?>/user-membership">please register</a></p>
+        <p>If you dont have account, <a href="<?= site_url()?>/user-membership">please register</a>
+        
+         |
+            <a href="<?php echo esc_url( wp_lostpassword_url() ); ?>" alt="<?php esc_attr_e( 'Reset Password', 'textdomain' ); ?>">
+	<?php esc_html_e( 'Reset Password', 'textdomain' ); ?>
+        </p>
  
-       <a class="reset-password-url" href="<?php echo esc_url( wp_lostpassword_url( get_permalink() ) ); ?>" alt="<?php esc_attr_e( 'Lost Password', 'textdomain' ); ?>">
-	<?php esc_html_e( 'Lost Password', 'textdomain' ); ?>
-</a>
+     
 
     </div>
         
