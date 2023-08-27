@@ -46,15 +46,15 @@ $post_title =  $post->post_title;
               
              $html ="<h2>Hello Dear</h2>, <br></br>";
              
-              $html .= "<br /><p> User $user_name  has asked  to delete the post $post_title.  <a href='$admin_url'><strong>Click here</strong></a> to approve it. OR copy the following link! to approve</p>";
+              $html .= "<br /><p> Korisnik $user_name trazi dozvolu da obrise post: $post_title.  <a href='$admin_url'><strong>Klikni ovde</strong></a> da odobris. Ili idi na sledeci link da</p>";
                             
               $html .= "<br /><p>$admin_url</p>";
               
-              $html .="<br /><br/><p><strong>Thanks,</strong></p></br>";
+              $html .="<br /><br/><p><strong>Hvala,</strong></p></br>";
                   
               $to =  get_option('admin_email');
                 
-                $subject = 'New Member Registration';
+                $subject = 'In Memoriam - nova registracija';
                 
                 $body = $html;
                 
@@ -129,7 +129,7 @@ if (!empty($_FILES["post_images"]["name"]) && count($_FILES["post_images"]["name
         
     $images_exceeds = false;
     
-    $exceed_image_message = "You cannot create post, as you exceed image uploading limit";
+    $exceed_image_message = "Ne mozes da kreiras post sa vise postova. Ispunio si limit.";
         
     }
     
@@ -319,7 +319,7 @@ endif;
         ?>
                 <div class="single-profile-item">
 
-                    <a href="<?= site_url('member-create-post')?>" class="creat-post-member">Create Post</a>
+                    <a href="<?= site_url('member-create-post')?>" class="creat-post-member">Krairaj Secanje</a>
 
                 </div>
 
@@ -329,13 +329,13 @@ endif;
             
             <div class="single-profile-item">
 
-                <a href="<?= site_url()?>/update-member-profile" >Update Profile</a>
+                <a href="<?= site_url()?>/update-member-profile" >Izmeni profil</a>
 
                 </div>
             
             <div class="single-profile-item">
 
-                <a href="<?php echo wp_logout_url(site_url()); ?>/membership-login">Logout</a>
+                <a href="<?php echo wp_logout_url(site_url()); ?>/membership-login">Izloguj se</a>
 
                 </div>
 
@@ -346,10 +346,10 @@ endif;
             <table id="example" class="display" style="width:100%">
                 <thead>
                     <tr>
-                        <th>Post Name</th>
-                        <th>Post content</th>
-                        <th>View Post</th>
-                        <th>Action</th>
+                        <th>Naziv posta</th>
+                        <th>Sadrzaj posta</th>
+                        <th>Pogledaj post</th>
+                        <th>Akcija</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -368,11 +368,11 @@ endif;
                     <tr>
                         <td><?=$singlePost->post_title?></td>
                         <td><?= $content?></td>
-                        <td><a href="<?=get_permalink( $singlePost->ID )?>">View Post</a></td>
+                        <td><a href="<?=get_permalink( $singlePost->ID )?>">Vidi post</a></td>
                         <td>
                            <a href="<?=site_url('/member-create-post/?id='.$singlePost->ID)?>" 
-                              class="update-post-member" >Update</a>| 
-                               <a href="<?=site_url('/user-profile?action=delete')?>&post_id=<?=$singlePost->ID?>"  data-id="<?=$singlePost->ID?>" class="delete">Delete</a></td>
+                              class="update-post-member" >Izmeni</a>| 
+                               <a href="<?=site_url('/user-profile?action=delete')?>&post_id=<?=$singlePost->ID?>"  data-id="<?=$singlePost->ID?>" class="delete">Obrisi</a></td>
                     </tr>
                    <?php
                    
@@ -382,9 +382,9 @@ endif;
                 </tbody>
                 <tfoot>
                     <tr>
-                        <th>Name</th>
-                        <th>Post content</th>
-                        <th>Action</th>
+                        <th>Ime</th>
+                        <th>Sadrzaj</th>
+                        <th>Akcija</th>
                     </tr>
                 </tfoot>
             </table>
@@ -402,7 +402,7 @@ endif;
 
             <div class="modal-header">
 
-                <h5 class="modal-title" id="exampleModalLabel">Create Post</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Krairaj secanje</h5>
 
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 
@@ -418,7 +418,7 @@ endif;
 if ($all_post->post_count >= $number_of_post):
 
 
-    echo "<p>You cannot create more posts</p>";
+    echo "<p>Ne mozes da kreiras vise postova.</p>";
 
 endif;
 ?>
@@ -427,7 +427,7 @@ endif;
 
             <div class="modal-footer">
 
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Iskljuci</button>
 
 
             </div>
@@ -446,7 +446,7 @@ endif;
 
             <div class="modal-header">
 
-                <h5 class="modal-title" id="exampleModalLabel">Update Post</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Izmeni post</h5>
 
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 
@@ -464,7 +464,7 @@ endif;
 
             <div class="modal-footer">
 
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Iskljuci</button>
 
 
             </div>
@@ -485,7 +485,7 @@ endif;
             
             e.preventDefault();
             
-            if(confirm('are you sure you want to delete this post?')){
+            if(confirm('da li ste sigurni da zelite da obrisete post?')){
                 
                 window.location.href= $(this).attr('href');
                 
