@@ -85,17 +85,17 @@ if (!empty($_POST)):
 
             $admin_url = admin_url() . "post.php?post=$post_id&action=edit";
 
-            $html = "<h2>Hello Dear</h2>,";
+            $html = "<h2>Postovani,</h2>";
 
-            $html .= "<p> User $user_name  has updated the post $post_title.  <a href='$admin_url'><strong>Click here</strong> </a>to approve it. OR copy the following link! to approve</p>";
+            $html .= "<p>Korisnik $user_name je izmeni post $post_title.  <a href='$admin_url'><strong>Klikni ovde</strong> </a>da odobris. Ili idi na sledeci link.</p>";
 
             $html .= "<p>$admin_url</p>";
 
-            $html .= "<p><strong>Thanks,</strong></p>";
+            $html .= "<p><strong>Hvala,</strong></p>";
 
             $to = get_option('admin_email');
 
-            $subject = 'Update Post';
+            $subject = 'In Memoriam - IZmeni Post';
 
             $body = $html;
 
@@ -124,17 +124,17 @@ if (!empty($_POST)):
 
             $admin_url = admin_url() . "post.php?post=$post_id&action=edit";
 
-            $html = "<h2>Hello Dear</h2>";
+            $html = "<h2>Postovani,</h2>";
 
-            $html .= "<p> User $user_name  created post $post_title.  <a href='$admin_url'><strong>Click here</strong></a>  to approve it. OR copy the following link!to approve</p>";
+            $html .= "<p>Korisnik $user_name je kreirao post $post_title.  <a href='$admin_url'><strong>Klikni ovde</strong></a> da odobris. Ili poseti sledeci link.</p>";
 
             $html .= "<p>$admin_url</p>";
 
-            $html .= "<p><strong>Thanks,</strong></p>";
+            $html .= "<p><strong>Hvala,</strong></p>";
 
             $to = get_option('admin_email');
 
-            $subject = 'New Post';
+            $subject = 'In Memoriam - Novi Post';
 
             $body = $html;
 
@@ -180,7 +180,7 @@ if (!empty($_POST)):
 // Check if the file already exists in the upload directory
         if (file_exists($target_file)) {
 
-            echo "Sorry, file already exists.";
+            echo "Izvinjavamo se, ovaj post vec postoji.";
         } else {
 
             $image_data = file_get_contents($_FILES['feature_image']['tmp_name']); // Get the image data from the uploaded file
@@ -222,7 +222,7 @@ if (!empty($_POST)):
 
     endif;
 
-    $_SESSION['message_create_post'] = "Your post is created, wait untill admin approve it!";
+    $_SESSION['message_create_post'] = "Tvoj post je kreiran. Molimo sacekajte dok admin potvrdi.";
 
 
     $url = site_url() . '/user-profile';
@@ -354,7 +354,7 @@ endif;
 
             <div class="form-group row">
 
-                <label for="postname" class="col-12 col-form-label post-label">Post name</label>
+                <label for="postname" class="col-12 col-form-label post-label">Naziv posta</label>
 
                 <div class="col-sm-10">
 
@@ -364,7 +364,7 @@ endif;
 
                 <div class="col-sm-10">
 
-                    <label for="postname" class="col-12 col-form-label post-label">Post Body</label>
+                    <label for="postname" class="col-12 col-form-label post-label">Sadrzaj posta</label>
 
                     <textarea id="post_body" name="post_body"  rows="6"><?= !empty($post->post_content) ? $post->post_content : '' ?></textarea>
                     <script>
@@ -375,7 +375,7 @@ endif;
 
                 <div class="col-sm-10">
 
-                    <label for="postname" class="col-12 col-form-label post-label">Feature Image</label>
+                    <label for="postname" class="col-12 col-form-label post-label">Naslovna slika</label>
 
                     <input type="file" name="feature_image" accept="image/png, image/gif, image/jpeg">
 
@@ -399,7 +399,7 @@ endif;
 
                 <div class="col-sm-10">
 
-                    <label for="postname" class="col-12 col-form-label post-label">Date of Birth</label>
+                    <label for="postname" class="col-12 col-form-label post-label">Datum rodjenja</label>
 
                     <input type="text" name="member_dob" data-date-format="yyyy-mm-dd"  value="<?=$member_dob?>" class="form-control date">
 
@@ -408,7 +408,7 @@ endif;
 
                 <div class="col-sm-10">
 
-                    <label for="postname" class="col-12 col-form-label post-label">Date of Death</label>
+                    <label for="postname" class="col-12 col-form-label post-label">Datum smrti</label>
 
                     <input type="text" data-date-format="yyyy-mm-dd" name="member_date_of_death" value="<?=$member_date_of_death?>" class="form-control date">
 
@@ -514,7 +514,7 @@ endif;
                                                                  ?>
                                                             <div data-id="editor_with_title_subtitle--element-2-0"
   
-                                                                 class="click-here-to-add-descrption">Click Here to add Descrption
+                                                                 class="click-here-to-add-descrption">Klikni ovde da dodas opis
                                                          
                                                             </div>
                                                             
@@ -528,7 +528,7 @@ endif;
 
                                                         <div class="text-field">
 
-                                                            <label>Title</label>
+                                                            <label>Naslov</label>
 
                                                             <input type="text" name="member_ship_title[<?= $i ?>][<?= $c ?>]"
                                                                    data-fieldname="member_ship_title" class="form-control" value="<?=$member_ship_title[$i][$c]?>">
@@ -537,18 +537,18 @@ endif;
 
                                                         <div class="tex-field">
 
-                                                            <label>Sub Title</label>
+                                                            <label>Podnaslov</label>
 
                                                             <input type="text" value="<?=$member_ship_sub_title[$i][$c]?>" name="member_ship_sub_title[<?= $i ?>][<?= $c ?>]" data-fieldname="member_ship_sub_title" class="form-control">
 
                                                         </div>
                                                         
                                                         
-                                                            <div class="tex-field"><label>Title/Sub title Position</label>
+                                                            <div class="tex-field"><label>Polozaj naslova i podnaslova</label>
                                                          
                                                         <select name="title_sub_title_positioin[<?= $i ?>][<?= $c ?>]" data-fieldname="title_sub_title_positioin" class="form-control">
                                                        
-                                                                <option value="">Select option</option>
+                                                                <option value="">Odaberi opciju</option>
                                                          <option value="top-left" 
                                                               <?=!empty($title_sub_title_positioin[$i][$c]) && $title_sub_title_positioin[$i][$c]=="top-left"?'selected':''?>
                                                                  >
@@ -576,9 +576,9 @@ endif;
                                                             </select>
                                                             </div>
 
-                                                        <div class="click-to-add-element">Change Element</div>
+                                                        <div class="click-to-add-element">Izmeni element</div>
 
-                                                        <div class="remove-to-add-element">Remove</div>
+                                                        <div class="remove-to-add-element">Izbrisi</div>
 
 
                                                     </div>
@@ -621,7 +621,7 @@ endif;
                                                                  if(empty($editor[$i][$c])):
                                                                  ?>
                                                                 <div data-id="full_editor--element-2-2-0" class="click-here-to-add-descrption">
-                                                                    Click Here to add Descrption</div>
+                                                                    Klikni ovde da dodas opis</div>
                                                                 
                                                                 <?php
                                                                 endif;
@@ -631,9 +631,9 @@ endif;
 
                                                         </div>
 
-                                                        <div class="click-to-add-element">Change Element</div>
+                                                        <div class="click-to-add-element">Izmeni Element</div>
 
-                                                        <div class="remove-to-add-element">Remove</div>
+                                                        <div class="remove-to-add-element">Obrisi</div>
 
 
                                                     </div>
@@ -694,7 +694,7 @@ endif;
 
                                                         </div>
 
-                                                        <div class="text-field"><label>Title</label>
+                                                        <div class="text-field"><label>Naslov</label>
 
                                                             <input type="text" name="member_ship_title[<?= $i ?>][<?= $c ?>]"
                                                                    value="<?=$member_ship_title[$i][$c]?>"
@@ -702,17 +702,17 @@ endif;
 
                                                         </div>
 
-                                                        <div class="tex-field"><label>Sub Title</label>
+                                                        <div class="tex-field"><label>Podnaslov</label>
 
                                                             <input type="text" value="<?=$member_ship_sub_title[$i][$c]?>" name="member_ship_sub_title[<?= $i ?>][<?= $c ?>]" data-fieldname="member_ship_sub_title" class="form-control">
 
                                                         </div>
                                                         
-                                                        <div class="tex-field"><label>Title/Sub title Position</label>
+                                                        <div class="tex-field"><label>Naslov/Podnaslov Pozicija</label>
                                                     
                                                         <select name="title_sub_title_positioin[<?= $i ?>][<?= $c ?>]" data-fieldname="title_sub_title_positioin" class="form-control">
                                                        
-                                                                <option value="">Select option</option>
+                                                                <option value="">Odaberi opciju</option>
                                                          <option value="top-left" 
                                                               <?=!empty($title_sub_title_positioin[$i][$c]) && $title_sub_title_positioin[$i][$c]=="top-left"?'selected':''?>
                                                                  >
@@ -740,9 +740,9 @@ endif;
                                                             </select>
                                                         </div>
 
-                                                        <div class="click-to-add-element">Change Element</div>
+                                                        <div class="click-to-add-element">Izmeni Element</div>
 
-                                                        <div class="remove-to-add-element">Remove</div>
+                                                        <div class="remove-to-add-element">Obrisi</div>
 
                                                     </div>
 
@@ -758,7 +758,7 @@ endif;
 
                                                             <div class="member-ship-loader"></div>
 
-                                                            <label>Image</label>
+                                                            <label>Slika</label>
 
                                                             <input data-fieldname="element_type" type="hidden" name="element_type[<?= $i ?>][<?= $c ?>]" 
                                                                    value="image_with_title_subtitle"><input name="member_ship_image_id[<?= $i ?>][<?= $c ?>]" 
@@ -793,7 +793,7 @@ endif;
 
                                                         </div>
 
-                                                        <div class="text-field"><label>Title</label>
+                                                        <div class="text-field"><label>Naslov</label>
 
                                                             <input type="text"
                                                                    value="<?=$member_ship_title[$i][$c]?>"
@@ -805,20 +805,20 @@ endif;
 
                                                         <div class="tex-field">
 
-                                                            <label>Sub Title</label>
+                                                            <label>Podnaslov</label>
 
                                                             <input type="text" name="member_ship_sub_title[<?= $i ?>][<?= $c ?>]" 
                                                                    data-fieldname="member_ship_sub_title" class="form-control" value="<?=$member_ship_sub_title[$i][$c]?>">
 
                                                         </div>
                                                         
-                                                        <div class="tex-field"><label>Title/Sub title Position</label>
+                                                        <div class="tex-field"><label>Naslov/Podnaslov Pozicija</label>
                                                             
                                                             <?php
                                                             ?>
                                                         <select name="title_sub_title_positioin[<?= $i ?>][<?= $c ?>]" data-fieldname="title_sub_title_positioin" class="form-control">
                                                        
-                                                                <option value="">Select option</option>
+                                                                <option value="">Odaberi opciju</option>
                                                          <option value="top-left" 
                                                               <?=!empty($title_sub_title_positioin[$i][$c]) && $title_sub_title_positioin[$i][$c]=="top-left"?'selected':''?>
                                                                  >
@@ -846,9 +846,9 @@ endif;
                                                             </select>
                                                         </div>
 
-                                                        <div class="click-to-add-element">Change Element</div>
+                                                        <div class="click-to-add-element">Izmeni Element</div>
 
-                                                        <div class="remove-to-add-element">Remove</div>
+                                                        <div class="remove-to-add-element">Izbrisi</div>
 
                                                     </div>
                             <?php
@@ -866,7 +866,7 @@ endif;
 
                                                             <div id="full-editor-container--element-2-2-0">
 
-                                                               <div class="text-field"><label>Title</label>
+                                                               <div class="text-field"><label>Naslov</label>
 
                                                             <input type="text" name="member_ship_title[<?= $i ?>][<?= $c ?>]"
                                                                    value="<?=$member_ship_title[$i][$c]?>"
@@ -878,9 +878,9 @@ endif;
 
                                                         </div>
 
-                                                        <div class="click-to-add-element">Change Element</div>
+                                                        <div class="click-to-add-element">Izmeni Element</div>
 
-                                                        <div class="remove-to-add-element">Remove</div>
+                                                        <div class="remove-to-add-element">Izbrisi</div>
 
 
                                                     </div>
@@ -890,7 +890,7 @@ endif;
                                                 default:
                                                     
                                                     ?>
-                                           <div class='click-to-add-element'>Add Element</div>
+                                           <div class='click-to-add-element'>Dodaj element</div>
                                             <?php
                     }
                     ?>
@@ -954,7 +954,7 @@ endif;
 
             <div class="col-12">
 
-                <button class="btn btn-primary" type="submit">Create</button>
+                <button class="btn btn-primary" type="submit">Krairaj</button>
 
             </div>
 
@@ -963,7 +963,7 @@ endif;
     <?php
 else:
 
-    echo "<p class='post-completed'> You cannot create anymore posts</p>";
+    echo "<p class='post-completed'>Ne mozes da kreiras vise postova.</p>";
 
 endif;
 ?>
@@ -977,7 +977,7 @@ endif;
 
             <div class="modal-header">
 
-                <h5 class="modal-title" id="exampleModalLabel">Add row</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Dodaj red</h5>
 
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 
@@ -994,7 +994,7 @@ endif;
 
                     <div class="form-group row">
 
-                        <label for="postname" class="col-12 col-form-label post-label">Select Number of column</label>
+                        <label for="postname" class="col-12 col-form-label post-label">Odaberi broj kolona.</label>
 
                         <div class="col-sm-10">
 
@@ -1027,11 +1027,11 @@ endif;
 
 
             </div>
-            <button type="submit" id="add-rows" class="btn btn-primary">Add</button>
+            <button type="submit" id="add-rows" class="btn btn-primary">Dodaj</button>
 
             <div class="modal-footer">
 
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Iskljuci</button>
 
 
             </div>
@@ -1054,7 +1054,7 @@ endif;
 
             <div class="modal-header">
 
-                <h5 class="modal-title" id="exampleModalLabel">Add Description</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Dodaj opis</h5>
 
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 
@@ -1082,11 +1082,11 @@ endif;
 
 
             </div>
-            <button type="submit" id="add-description" style="max-width:150px;" class="btn btn-primary">Add Description</button>
+            <button type="submit" id="add-description" style="max-width:150px;" class="btn btn-primary">Dodaj opis</button>
 
             <div class="modal-footer">
 
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Iskljuci</button>
 
 
             </div>
@@ -1107,7 +1107,7 @@ endif;
 
             <div class="modal-header">
 
-                <h5 class="modal-title" id="exampleModalLabel">Add row</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Dodaj red</h5>
 
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 
@@ -1124,7 +1124,7 @@ endif;
 
                     <div class="form-group row">
 
-                        <label for="postname" class="col-12 col-form-label post-label">Add Element</label>
+                        <label for="postname" class="col-12 col-form-label post-label">Dodaj element</label>
 
                         <div class="col-sm-10">
 
@@ -1134,26 +1134,26 @@ endif;
 
                             <select name="elements" class="form-control">
 
-                                <option value="image_with_title_subtitle">Image With title and subtitle</option>
+                                <option value="image_with_title_subtitle">Slika sa naslovom i podnaslovom</option>
                                 
-                                <option value="only_title">Title</option>
+                                <option value="only_title">Naslov</option>
 
-                                <option value="editor_with_title_subtitle">Editor with title and subtitle</option>
+                                <option value="editor_with_title_subtitle">Tekstualni editor sa naslovom i podnaslovom</option>
 
-                                <option value="video_with_title_subtitle">Video With Title and subtitle</option>
+                                <option value="video_with_title_subtitle">Video sa naslovom i podnaslovom</option>
 
-                                <option value="full_editor">Full Editor</option>
+                                <option value="full_editor">Tekstualni editor</option>
 
                             </select>
                         </div> 
 
                     </div>
 
-                    <button type="submit" id="add-elements" class="btn btn-primary">Add</button>
+                    <button type="submit" id="add-elements" class="btn btn-primary">Dodaj</button>
 
                     <div class="modal-footer">
 
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Iskljuci</button>
 
 
                     </div>
@@ -1183,7 +1183,7 @@ endif;
     })
     $(document).on('click', '.remove-to-add-element', function () {
 
-        if (confirm('Are you sure you want to remove this block?')) {
+        if (confirm('Da li si siguran da zelis da obrises ovaj blok?')) {
 
             if ($(this).parents('.member-post-row').find('.custom-column-class').length == 1) {
 
@@ -1280,7 +1280,7 @@ endif;
         } else {
 
 
-            $(this).before('<div style="color:red" id="desc-success-msg">Please Add some description.</div>');
+            $(this).before('<div style="color:red" id="desc-success-msg">Dodaj neki opis.</div>');
 
             setTimeout(function () {
 
@@ -1323,7 +1323,7 @@ endif;
 
             case "only_title":
             
-              html += "<div class='text-field'><label>Title</label><input type='text' \n\
+              html += "<div class='text-field'><label>Naslov</label><input type='text' \n\
             name='member_ship_title[" + row_number + "][" + thisColumn + "]' data-fieldname='member_ship_title'  class='form-control'> \n\
  <input data-fieldname='element_type' type='hidden' name='element_type[" + row_number + "][" + thisColumn + "]' \n\
 value='only_title'></div>";
@@ -1333,21 +1333,21 @@ value='only_title'></div>";
             break;
             case "image_with_title_subtitle":
 
-                html += "<div class='image-field'><div class='member-ship-loader'></div><label>Image</label>\n\
+                html += "<div class='image-field'><div class='member-ship-loader'></div><label>Slika</label>\n\
                     <input data-fieldname='element_type' type='hidden' name='element_type[" + row_number + "][" + thisColumn + "]' value='image_with_title_subtitle'><input name='member_ship_image_id[" + row_number + "][" + thisColumn + "]' data-fieldname='member_ship_image_id' type='hidden' \n\
                      class='member-ship-image-id'><div class='membership-image-container'>\n\
                    </div><input type='file' accept='image/*' data-fieldname='member_ship_image' name='member_ship_image[" + row_number + "][" + thisColumn + "]' class='form-control'></div>";
 
-                html += "<div class='text-field'><label>Title</label><input type='text' \n\
+                html += "<div class='text-field'><label>Naslov</label><input type='text' \n\
             name='member_ship_title[" + row_number + "][" + thisColumn + "]' data-fieldname='member_ship_title'  class='form-control'></div>";
 
-                html += "<div class='tex-field'><label>Sub Title</label><input type='text' \n\
+                html += "<div class='tex-field'><label>Podnaslov</label><input type='text' \n\
             name='member_ship_sub_title[" + row_number + "][" + thisColumn + "]' data-fieldname='member_ship_sub_title' class='form-control'></div>";
 
- html += "<div class='tex-field'><label>Title/Sub title Position</label>\n\
+ html += "<div class='tex-field'><label>Naslov/Podnaslov Pozicija</label>\n\
    <select name='title_sub_title_positioin[" + row_number + "][" + thisColumn + "]' \n\
 data-fieldname='title_sub_title_positioin' class='form-control'>\n\
-<option value=''>Select option</option>\n\
+<option value=''>Odaberi opciju</option>\n\
 <option value='top-left'>Top Left</option>\n\
 <option value='top-center'>Top Center</option>\n\
 <option value='top-right'>Top Right</option>\n\
@@ -1365,16 +1365,16 @@ data-fieldname='title_sub_title_positioin' class='form-control'>\n\
  class='member-ship-image-id'><div class='membership-image-container'>\n\
 </div><input type='file' accept='video/*' name='member_ship_video[" + row_number + "][" + thisColumn + "]' data-fieldname='member_ship_video'  class='form-control'></div>";
 
-                html += "<div class='text-field'><label>Title</label><input type='text' \n\
+                html += "<div class='text-field'><label>Naslov</label><input type='text' \n\
             name='member_ship_title[" + row_number + "][" + thisColumn + "]' data-fieldname='member_ship_title' class='form-control'></div>";
 
-                html += "<div class='tex-field'><label>Sub Title</label><input type='text' \n\
+                html += "<div class='tex-field'><label>Podnaslov</label><input type='text' \n\
             name='member_ship_sub_title[" + row_number + "][" + thisColumn + "]' data-fieldname='member_ship_sub_title' class='form-control'></div>";
 
- html += "<div class='tex-field'><label>Title/Sub title Position</label>\n\
+ html += "<div class='tex-field'><label>Naslov/Podnaslov Pozicija</label>\n\
    <select name='title_sub_title_positioin[" + row_number + "][" + thisColumn + "]' \n\
 data-fieldname='title_sub_title_positioin' class='form-control'>\n\
-<option value=''>Select option</option>\n\
+<option value=''>Odaberi opciju</option>\n\
 <option value='top-left'>Top Left</option>\n\
 <option value='top-center'>Top Center</option>\n\
 <option value='top-right'>Top Right</option>\n\
@@ -1395,16 +1395,16 @@ class='from-control editor' id='editor_with_title_subtitle--" + thisRowID + "'><
 <div data-id='editor_with_title_subtitle--" + thisRowID + "'\n\
  class='click-here-to-add-descrption'>Click Here to add Descrption</div></div>";
 
-                html += "<div class='text-field'><label>Title</label><input type='text'\n\
+                html += "<div class='text-field'><label>Naslov</label><input type='text'\n\
      name='member_ship_title[" + row_number + "][" + thisColumn + "]' data-fieldname='member_ship_title' class='form-control'></div>";
 
-                html += "<div class='tex-field'><label>Sub Title</label><input type='text' \n\
+                html += "<div class='tex-field'><label>Podnaslov</label><input type='text' \n\
             name='member_ship_sub_title[" + row_number + "][" + thisColumn + "]' data-fieldname='member_ship_sub_title' class='form-control'></div>";
 
- html += "<div class='tex-field'><label>Title/Sub title Position</label>\n\
+ html += "<div class='tex-field'><label>Naslov/Podnaslov Pozicija</label>\n\
    <select name='title_sub_title_positioin[" + row_number + "][" + thisColumn + "]' \n\
 data-fieldname='title_sub_title_positioin' class='form-control'>\n\
-<option value=''>Select option</option>\n\
+<option value=''>Odaberi opciju</option>\n\
 <option value='top-left'>Top Left</option>\n\
 <option value='top-center'>Top Center</option>\n\
 <option value='top-right'>Top Right</option>\n\
@@ -1432,7 +1432,7 @@ data-fieldname='title_sub_title_positioin' class='form-control'>\n\
 
 
 
-        html += "<div class='click-to-add-element'>Change Element</div><div class='remove-to-add-element'>Remove</div>";
+        html += "<div class='click-to-add-element'>Izmeni Element</div><div class='remove-to-add-element'>Izbrisi</div>";
 
 
         $('#' + $('input[name="element_id"]').val()).html(html);
@@ -1475,25 +1475,25 @@ e.preventDefault();
 
         if (number_of_column == 1) {
 
-            html += "<div class='col-12 custom-column-class member-post-single-columm'><div data-column='0' class='add-element' data-row='" + row_number + "' id='element-1-" + row_number + "'><div class='click-to-add-element'>Add Element</div></div></div>";
+            html += "<div class='col-12 custom-column-class member-post-single-columm'><div data-column='0' class='add-element' data-row='" + row_number + "' id='element-1-" + row_number + "'><div class='click-to-add-element'>Dodaj element</div></div></div>";
 
         }
 
         if (number_of_column == 2) {
 
-            html += "<div class='col-lg-6 col-md-6 col-sm-12 custom-column-class member-post-two-columm'><div data-column='0'  class='add-element' data-row='" + row_number + "' id='element-2-" + row_number + "'><div class='click-to-add-element'>Add Element</div></div></div>";
+            html += "<div class='col-lg-6 col-md-6 col-sm-12 custom-column-class member-post-two-columm'><div data-column='0'  class='add-element' data-row='" + row_number + "' id='element-2-" + row_number + "'><div class='click-to-add-element'>Dodaj element</div></div></div>";
 
-            html += "<div class='col-lg-6 col-md-6 col-sm-12 custom-column-class member-post-two-columm'><div data-column='1'  class='add-element' data-row='" + row_number + "' id='element-2-2-" + row_number + "'><div class='click-to-add-element'>Add Element</div></div></div>";
+            html += "<div class='col-lg-6 col-md-6 col-sm-12 custom-column-class member-post-two-columm'><div data-column='1'  class='add-element' data-row='" + row_number + "' id='element-2-2-" + row_number + "'><div class='click-to-add-element'>Dodaj element</div></div></div>";
 
         }
 
         if (number_of_column == 3) {
 
-            html += "<div class='col-lg-4 col-md-4 col-sm-12 custom-column-class member-post-three-columm'><div data-column='0'   class='add-element' data-row='" + row_number + "' id='element-3-" + row_number + "'><div class='click-to-add-element'>Add Element</div></div></div>";
+            html += "<div class='col-lg-4 col-md-4 col-sm-12 custom-column-class member-post-three-columm'><div data-column='0'   class='add-element' data-row='" + row_number + "' id='element-3-" + row_number + "'><div class='click-to-add-element'>Dodaj element</div></div></div>";
 
-            html += "<div class='col-lg-4 col-md-4 col-sm-12 custom-column-class member-post-three-columm'><div data-column='1'  class='add-element' data-row='" + row_number + "' id='element-3-2-" + row_number + "'><div class='click-to-add-element'>Add Element</div></div></div>";
+            html += "<div class='col-lg-4 col-md-4 col-sm-12 custom-column-class member-post-three-columm'><div data-column='1'  class='add-element' data-row='" + row_number + "' id='element-3-2-" + row_number + "'><div class='click-to-add-element'>Dodaj element</div></div></div>";
 
-            html += "<div class='col-lg-4 col-md-4 col-sm-12 custom-column-class member-post-three-columm'><div data-column='2'  class='add-element' data-row='" + row_number + "' id='element-3-3-" + row_number + "'><div class='click-to-add-element'>Add Element</div></div></div>";
+            html += "<div class='col-lg-4 col-md-4 col-sm-12 custom-column-class member-post-three-columm'><div data-column='2'  class='add-element' data-row='" + row_number + "' id='element-3-3-" + row_number + "'><div class='click-to-add-element'>Dodaj element</div></div></div>";
 
         }
 
