@@ -1,0 +1,172 @@
+@mixin breakpoint($point){
+
+    @if $point == 1920{
+        @media (max-width: 1920px){@content ;}
+
+    } @else if $point == max{
+        @media (min-width: 2560px){@content ;}
+
+    } @else if $point == 1600{
+        @media (max-width: 1680px){@content ;}
+
+    } @else if $point == 1440{
+        @media (max-width: 1500px){@content ;}
+
+    } @else if $point == 1366{
+        @media (max-width: 1400px){@content ;}
+
+    } @else if $point == 1280{
+        @media (max-width: 1320px){@content ;}
+
+    } @else if $point == 1024{
+        @media (max-width: 1200px){@content ;}
+
+    } @else if $point == 768{
+        @media (max-width: 1000px){@content ;}
+
+    }@else if $point == 640{
+        @media (max-width: 700px){@content ;}
+
+    } @else if $point == 480{
+        @media (max-width: 480px){@content ;}
+
+    }@else if $point == medium-mobile{
+        @media (max-width: 375px){@content ;}
+
+    } @else if $point == small-mobile{
+        @media (max-width: 320px){@content ;}
+    }
+    
+}
+
+@function p($pixels) {
+    $designWidth: 1920;
+    $result: calc($pixels * 100 / $designWidth) * 1vw;
+    @return $result;
+}
+
+@function m($pixels) {
+    $designWidth: 1920;
+    $result: calc(2560 / $designWidth) * $pixels * 1px;
+    @return $result;
+}
+
+$font-libre: 'Libre Baskerville', Helvetica, Arial, sans-serif;
+$font-montserrat: 'Montserrat', Helvetica, Arial, sans-serif;
+
+@font-face {
+    font-family: 'Helvetica';
+    src: url('../webfonts/Helvetica.eot');
+    src: url('../webfonts/Helvetica.eot?#iefix') format('embedded-opentype'),
+        url('../webfonts/Helvetica.woff2') format('woff2'),
+        url('../webfonts/Helvetica.woff') format('woff'),
+        url('../webfonts/Helvetica.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+html, body{
+    font-family: $font-libre;
+}
+
+.other-fields-container{
+    display: flex;
+    flex-wrap: wrap;
+    .row{
+        position: relative;
+        width: 100%;
+        margin: 0;
+        padding-bottom: p(50);
+
+        @include breakpoint(max){
+            padding-bottom: p(50);
+        }
+
+        &.row-holder{
+            display: flex;
+            flex-wrap: wrap;
+            .card{
+                flex: 1;
+                border-radius: 30px;
+                margin-right: 2%;
+                border: none;
+                color: black;
+
+                .editor-with-title-subtitle, .full-editor{
+                    padding: p(40) p(40) p(40) p(40);
+                    box-sizing: border-box;
+        
+                    @include breakpoint(max){
+                        padding: m(40) m(40) m(40) m(40);
+                    }
+                }
+
+                .video-with-title-subtitle{
+                    .title-subtitle{
+                        padding: p(40) p(40) p(40) p(40);
+                        box-sizing: border-box;
+            
+                        @include breakpoint(max){
+                            padding: m(40) m(40) m(40) m(40);
+                        }
+                    }
+                }
+
+                &:last-child{
+                    margin-right: 0;
+                }
+                p{
+                    font-size: p(20);
+    
+                    @include breakpoint(max){
+                        font-size: m(20);
+                    }
+                }
+            }
+        }
+        .image-container{
+            aspect-ratio: 1/1;
+        }
+    }
+}
+
+.frontend-wrapper{
+    .inner-item-container{
+        &.video-with-title-subtitle{
+            border-radius: 30px;
+            overflow: hidden;
+            video{
+                aspect-ratio: 16/9;
+            }
+        }
+    }
+    .hero{
+        position: relative;
+        border-radius: 30px;
+        overflow: hidden;
+        margin-bottom: p(50);
+
+        @include breakpoint(max){
+            margin-bottom: p(50);
+        }
+
+        .holder{
+            article{
+                z-index: 2;
+                p{
+                    margin: 0;
+                }
+            }
+            &:after{
+                content: "";
+                position: absolute;
+                top: 0; left: 0;
+                width: 100%; height: 100%;
+                background-color: black;
+                opacity: 0.3;
+                z-index: 1;
+            }
+        }
+    }
+}

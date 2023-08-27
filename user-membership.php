@@ -994,6 +994,7 @@ endif;
          wp_enqueue_script( 'script', plugins_url . '/assets/member-ship.js', array( 'jquery' ), 1.2, true);
          
          wp_enqueue_style('user-membership', plugins_url . '/assets/member-ship.css', array(), '0.2.0', 'all');
+         wp_enqueue_style('user-membership-new', plugins_url . '/assets/membership-new.css', array(), '0.2.0', 'all');
         
     }
 

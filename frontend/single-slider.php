@@ -129,7 +129,7 @@ h1.wp-block-post-title.membership-sinlge-post-title {
 
     if( $post->post_status=='publish'):
 ?>
-    <div class="container membership-sinlge-post frontend">
+    <div class="membership-sinlge-post frontend">
     
     <?php
     
@@ -142,16 +142,17 @@ h1.wp-block-post-title.membership-sinlge-post-title {
   
     if(!empty($featured_img_url)):
     ?>
-    <div class="feature-membership-image" style="width:100%; background: url('<?=$featured_img_url?>');     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;">
+    <div class="hero feature-membership-image has_bgr" style="background-image: url('<?=$featured_img_url?>');">
         
         
-        <div class='header-banner-content'>
+        <div class='holder left'>
 
-            <h4 class='member-single-title'><?=$post->post_title?></h4>
+            <article>
+                                
+                <h1 class='animated anim_y in_view'><?=$post->post_title?></h1>
 
-              <div class='member-post-content'><?=$post->post_content?></div>
+                <div class='anim_y in_view member-post-content'><?=$post->post_content?></div>
+            </article>
 
             <?php
         
@@ -197,7 +198,7 @@ h1.wp-block-post-title.membership-sinlge-post-title {
     
 </div>
 
-<div class="container-fluid other-fields-container">
+<div class="other-fields-container">
     <?php
     
     
@@ -255,19 +256,19 @@ h1.wp-block-post-title.membership-sinlge-post-title {
 
                             case 1:
 
-                                $columns_classes = "col-12 custom-column-class member-post-single-columm";
+                                $columns_classes = "custom-column-class member-post-single-columm";
 
                                 break;
 
                             case 2:
 
-                                $columns_classes = "col-lg-6 col-md-6 col-sm-12 custom-column-class member-post-two-columm";
+                                $columns_classes = "custom-column-class member-post-two-columm";
 
                                 break;
 
                             case 3:
 
-                                $columns_classes = "col-lg-4 col-md-4 col-sm-12 custom-column-class member-post-three-columm";
+                                $columns_classes = "custom-column-class member-post-three-columm";
 
                                 break;
                         }
@@ -277,7 +278,7 @@ h1.wp-block-post-title.membership-sinlge-post-title {
                             
                         ?>
 
-                        <div class="row member-post-row <?=$column_class_row[$i]?>">
+                        <div class="row row-holder <?=$column_class_row[$i]?>">
 
 
                             <?php
@@ -298,7 +299,7 @@ h1.wp-block-post-title.membership-sinlge-post-title {
                                     ?>
                             
 
-                                    <div class='<?= $columns_classes ?>'>
+                                    <div class='card <?= $columns_classes ?>'>
 
 
                                             <?php
@@ -409,9 +410,7 @@ h1.wp-block-post-title.membership-sinlge-post-title {
                                                            $image_attributes = wp_get_attachment_image_src($member_ship_image_id[$i][$c], 'full');
                     
                                                            ?>
-                                            <div class="image-container" style="<?=!empty($image_attributes)?'background:url('.$image_attributes[0].'); min-height: 300px;
-background-size: cover;
-background-position: center;':''?>; ">  
+                                            <div class="image-container has_bgr" style="<?=!empty($image_attributes)?'background-image:url('.$image_attributes[0].');':''?>; ">  
                                                                
                                                            </div>
                                                            

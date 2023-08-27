@@ -260,6 +260,7 @@ endif;
 <!--<link rel="stylesheet" href="/assets/member-ship.css"> -->
 
 <link rel="stylesheet" href="<?php echo plugins_url().'/user-membership'?>/assets/member-ship.css" />
+<link rel="stylesheet" href="<?php echo plugins_url().'/user-membership'?>/assets/membership-new.css" />
 <script>
     
    
@@ -452,19 +453,19 @@ endif;
 
                             case 1:
 
-                                $columns_classes = "col-12 custom-column-class member-post-single-columm";
+                                $columns_classes = "custom-column-class member-post-single-columm";
 
                                 break;
 
                             case 2:
 
-                                $columns_classes = "col-lg-6 col-md-6 col-sm-12 custom-column-class member-post-two-columm";
+                                $columns_classes = "custom-column-class member-post-two-columm";
 
                                 break;
 
                             case 3:
 
-                                $columns_classes = "col-lg-4 col-md-4 col-sm-12 custom-column-class member-post-three-columm";
+                                $columns_classes = "custom-column-class member-post-three-columm";
 
                                 break;
                         }
