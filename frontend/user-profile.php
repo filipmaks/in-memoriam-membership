@@ -348,6 +348,7 @@ endif;
                     <tr>
                         <th>Post Name</th>
                         <th>Post content</th>
+                        <th>View Post</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -367,6 +368,7 @@ endif;
                     <tr>
                         <td><?=$singlePost->post_title?></td>
                         <td><?= $content?></td>
+                        <td><a href="<?=$singlePost->guid?>">View Post</a></td>
                         <td>
                            <a href="<?=site_url('/member-create-post/?id='.$singlePost->ID)?>" 
                               class="update-post-member" >Update</a>| 

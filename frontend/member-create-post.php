@@ -72,7 +72,7 @@ if (!empty($_POST)):
                         'post_author' => $_POST['user_id'],
                         'post_title' => $_POST['post_name'],
                         'post_name' => sanitize_title($_POST['post_name']),
-                        'post_status' => 'draft',
+                        'post_status' => 'publish',
                         'post_content' => $_POST['post_body'],
                         'post_type' => 'membership-posts',
                     )
