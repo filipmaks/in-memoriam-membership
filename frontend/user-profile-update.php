@@ -159,8 +159,8 @@ if(!is_user_logged_in()){
         ?>
     
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
-     
-        User with this email already exist
+        
+        Korisnik sa ovim emailom vec postoji.
         
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             
@@ -177,8 +177,7 @@ if(!is_user_logged_in()){
            ?>
     
     <div class="alert alert-success alert-dismissible fade show" role="alert">
-     
-        You have successfully registered with us, stay tune you will notify once admin approve your account.
+        Uspesno ste kreirali nalog, sacekajte da administrator odobri vas nalog.
         
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             
@@ -203,7 +202,7 @@ if(!is_user_logged_in()){
         ?>
                 <div class="single-profile-item">
 
-                    <a href="<?= site_url()?>/user-profile" class="creat-post-member" >Create Post</a>
+                    <a href="<?= site_url()?>/user-profile" class="creat-post-member" >Krairaj Secanje</a>
 
                 </div>
 
@@ -213,13 +212,13 @@ endif;
             
             <div class="single-profile-item">
 
-                <a href="<?= site_url()?>/update-member-profile" >Update Profile</a>
+                <a href="<?= site_url()?>/update-member-profile" >Izmeni profil</a>
 
                 </div>
             
             <div class="single-profile-item">
 
-                    <a href="<?php echo wp_logout_url(site_url()); ?>/membership-login">Logout</a>
+                    <a href="<?php echo wp_logout_url(site_url()); ?>/membership-login">Izloguj se</a>
 
 
                 </div>
@@ -234,13 +233,13 @@ endif;
          
         <div class="form-group row">
             
-        <label for="member_first_name" class="col-sm-3 col-form-label">First Name</label>
+        <label for="member_first_name" class="col-sm-3 col-form-label">Ime</label>
         
         <input type="hidden" name="member_id" value="<?=$current_user->ID?>">
 
         <div class="col-sm-9">
 
-            <input type="text" value="<?=$member_first_name?>" name="member_first_name" class="form-control" id="member_first_name" placeholder="First name" required="">
+            <input type="text" value="<?=$member_first_name?>" name="member_first_name" class="form-control" id="member_first_name" placeholder="Ime" required="">
 
         </div>
         
@@ -248,42 +247,42 @@ endif;
         
          <div class="form-group row">
              
-        <label for="member_last_name"   class="col-sm-3 col-form-label">Last Name</label>
+        <label for="member_last_name"   class="col-sm-3 col-form-label">Prezime</label>
 
         <div class="col-sm-9">
 
-            <input type="text" value="<?=$member_last_name?>"   name="member_last_name" class="form-control" id="member_last_name" placeholder="Last name" required="">
+            <input type="text" value="<?=$member_last_name?>"   name="member_last_name" class="form-control" id="member_last_name" placeholder="Prezime" required="">
 
         </div>
         
          </div>
         
          <div class="form-group row">
-         <label for="member_phone"   class="col-sm-3 col-form-label">Phone</label>
+         <label for="member_phone"   class="col-sm-3 col-form-label">Telefon</label>
 
         <div class="col-sm-9">
 
-            <input type="text" value="<?=get_user_meta($current_user->ID, 'member_phone', true)?>"   name="member_phone" class="form-control" id="member_phone" placeholder="Phone" required="">
+            <input type="text" value="<?=get_user_meta($current_user->ID, 'member_phone', true)?>"   name="member_phone" class="form-control" id="member_phone" placeholder="Telefon" required="">
 
         </div>
          </div>
          
          <div class="form-group row">
-          <label for="member_invoice"   class="col-sm-3 col-form-label">Invoice</label>
+          <label for="member_invoice"   class="col-sm-3 col-form-label">Licni Broj</label>
 
         <div class="col-sm-9">
 
-            <input type="text" readonly="" value="<?=get_user_meta($current_user->ID, 'member_invoice', true)?>"   name="member_invoice" class="form-control" id="member_invoice" placeholder="Invoice">
+            <input type="text" readonly="" value="<?=get_user_meta($current_user->ID, 'member_invoice', true)?>"   name="member_invoice" class="form-control" id="member_invoice" placeholder="Licni Broj">
 
         </div>
          </div>
         
          <div class="form-group row">
-           <label for="member_invoice_call"   class="col-sm-3 col-form-label">Invoice Call</label>
+           <label for="member_invoice_call"   class="col-sm-3 col-form-label">Poziv na broj</label>
 
         <div class="col-sm-9">
 
-            <input type="text" value="<?=get_user_meta($current_user->ID, 'member_invoice_call', true)?>"   name="member_invoice_call" class="form-control" id="member_invoice" placeholder="Invoice call">
+            <input type="text" value="<?=get_user_meta($current_user->ID, 'member_invoice_call', true)?>"   name="member_invoice_call" class="form-control" id="member_invoice" placeholder="Poziv na broj">
 
         </div>
            
@@ -291,11 +290,11 @@ endif;
         
          <div class="form-group row">
            
-            <label for="member_price"   class="col-sm-3 col-form-label">Price</label>
+            <label for="member_price"   class="col-sm-3 col-form-label">Cena</label>
 
         <div class="col-sm-9">
 
-            <input type="text" value="<?=get_user_meta($current_user->ID, 'member_price', true)?>"   name="member_price" class="form-control" id="member_price" placeholder="Price">
+            <input type="text" value="<?=get_user_meta($current_user->ID, 'member_price', true)?>"   name="member_price" class="form-control" id="member_price" placeholder="Cena">
 
         </div>
             
@@ -310,7 +309,7 @@ endif;
         
          <div class="form-group row">
         
-         <label for="member_date_of_birth"   class="col-sm-3 col-form-label">Date Of Birth</label>
+         <label for="member_date_of_birth"   class="col-sm-3 col-form-label">Datum rodjenja</label>
 
           <div class="col-sm-9">
         
@@ -331,7 +330,7 @@ endif;
          </div>
         
          <div class="form-group row">
-          <label for="member_date_of_death"   class="col-sm-3 col-form-label">Date Of Death</label>
+          <label for="member_date_of_death"   class="col-sm-3 col-form-label">Datum smrti</label>
 
           <div class="col-sm-9">
         
@@ -354,11 +353,11 @@ endif;
          </div>
          
          <div class="form-group row">
-         <label for="member_password"  class="col-sm-3 col-form-label">Password</label>
+         <label for="member_password"  class="col-sm-3 col-form-label">Sifra</label>
 
         <div class="col-sm-9">
 
-            <input type="password"  name="member_password"  minlength="8" class="form-control" id="member_password" placeholder="Password" >
+            <input type="password"  name="member_password"  minlength="8" class="form-control" id="member_password" placeholder="Sifra" >
 
         </div>
          
@@ -371,7 +370,7 @@ endif;
           
         <div class="col-9">
       
-        <button class="btn btn-primary" type="submit">Submit form</button>
+        <button class="btn btn-primary" type="submit">Posalji formu</button>
  
        </div>
        
