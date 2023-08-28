@@ -86,13 +86,23 @@ if (!empty($_POST)):
 
             // Get all meta keys associated with the post
             $meta_keys = get_post_custom_keys($post_id);
-
+            
+           
             if ($meta_keys) {
               foreach ($meta_keys as $meta_key) {
+                  
                 // Delete the postmeta for each key
-                delete_post_meta_by_key($meta_key, $post_id);
+                  
+                  if($meta_key !="_thumbnail_id"):
+                      
+                      delete_post_meta_by_key($meta_key, $post_id);
+                      
+                  endif;
+                
+                  
               }
             }
+            
           
             $post_title = $_POST['post_name'];
 
@@ -181,7 +191,7 @@ if (!empty($_POST)):
     endif;
 
 
-    if (!empty($_FILES['feature_image']['tmp_name'])):
+    if (!empty($_FILES['feature_image']['name'])):
 
 
 
@@ -235,9 +245,20 @@ if (!empty($_POST)):
 
 
     endif;
+    
+    if(!empty($_POST['membership_post_id'])):
+        
+        $_SESSION['message_create_post'] = "Post is saved successfully!";
 
-    $_SESSION['message_create_post'] = "Your post is created, wait untill admin approve it!";
+    
+        else:
+        
+        $_SESSION['message_create_post'] = "Your post is created, wait untill admin approve it!";
 
+        
+    endif;
+
+    
 
     $url = site_url() . '/user-profile';
 
